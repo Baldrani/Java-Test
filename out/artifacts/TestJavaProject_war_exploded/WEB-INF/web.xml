@@ -5,12 +5,12 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>Connexion</servlet-name>
-        <servlet-class>Connexion</servlet-class>
+        <servlet-name>Connection</servlet-name>
+        <servlet-class>Connection</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Connexion</servlet-name>
-        <url-pattern>/connexion</url-pattern>
+        <servlet-name>Connection</servlet-name>
+        <url-pattern>/connection</url-pattern>
     </servlet-mapping>
 
     <servlet>
