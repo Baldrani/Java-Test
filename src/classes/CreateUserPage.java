@@ -1,5 +1,7 @@
 package classes;
 
+import models.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,8 +34,8 @@ public class CreateUserPage extends HttpServlet {
                 user.setLogin(request.getParameter("login"));
                 user.setPassword(request.getParameter("password"));
 
-                ConnexionBdd connexionBdd = new ConnexionBdd();
-                connexionBdd.addUser(user);
+                ConnectionDb connectionDb = new ConnectionDb();
+                connectionDb.addUser(user);
 
                 HttpSession session = request.getSession();
                 session.setAttribute( "connected", true );

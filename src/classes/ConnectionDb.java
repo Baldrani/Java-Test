@@ -1,11 +1,13 @@
 package classes;
 
+import models.User;
+
 import java.sql.Connection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConnexionBdd {
+public class ConnectionDb {
     private Connection connection;
 
     /**

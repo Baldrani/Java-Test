@@ -1,10 +1,12 @@
-package classes;
+package models;
+
+import classes.ConnectionDb;
 
 public class User {
     private String login;
     private String password;
 
-    private ConnexionBdd connection = new ConnexionBdd();
+    private ConnectionDb connection = new ConnectionDb();
 
     public String getLogin() {
         return login;

@@ -19,7 +19,7 @@ public class Private extends HttpServlet{
         //}
         //else
         //{
-            ConnexionBdd logins = new ConnexionBdd();
+            ConnectionDb logins = new ConnectionDb();
 
 
             List listusers = logins.listUsers();
