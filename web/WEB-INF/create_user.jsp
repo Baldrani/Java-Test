@@ -32,8 +32,8 @@
                         <input type="password" id="password" name="password" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="password">Confirmation du mot de passe : </label>
-                        <input type="password" id="password-confirm" name="password_confirm" class="form-control">
+                        <label for="password-confirm">Confirmation du mot de passe : </label>
+                        <input type="password" id="password-confirm" name="password-confirm" class="form-control">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Envoyer">
                 </div>

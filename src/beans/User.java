@@ -1,12 +1,19 @@
-package models;
+package beans;
 
 import classes.ConnectionDb;
+//import dao.UserDAO;
 
 public class User {
     private String login;
     private String password;
 
-    private ConnectionDb connection = new ConnectionDb();
+    public User() {
+    }
+
+    public void create(String login, String password) {
+        //UserDAO userDao = new UserDAO(this);
+        //userDao.create();
+    }
 
     public String getLogin() {
         return login;

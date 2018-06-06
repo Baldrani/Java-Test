@@ -4,6 +4,17 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+
+    <jsp-config>
+        <jsp-property-group>
+            <description>Config. de l'encodage des pages JSP</description>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
+
+
+
     <servlet>
         <servlet-name>Connection</servlet-name>
         <servlet-class>Connection</servlet-class>

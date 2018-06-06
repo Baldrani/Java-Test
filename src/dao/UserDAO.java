@@ -1,11 +1,14 @@
 package dao;
 
-import models.User;
+import beans.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/*
 public class UserDAO extends DAO<User>{
+
+
 
     public boolean create(User obj) {
         return false;
@@ -17,6 +20,12 @@ public class UserDAO extends DAO<User>{
 
     public boolean update(User obj) {
         return false;
+    }
+
+    public void create(String login, String password){
+        User user = new User();
+        user.setLogin(login);
+        user.setPassword(password);
     }
 
     public User find(int id) {
@@ -32,10 +41,11 @@ public class UserDAO extends DAO<User>{
                  user = new User(
                         result.getString("login"),
                         result.getString("password"));
-                 */
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return user;
     }
 }
+*/

@@ -18,15 +18,9 @@
 <p>${ !empty message ? message : '' }</p>
 
 <c:if test="${ !empty sessionScope.login }">
-    <p>Bonjour ${ sessionScope.login }</p>
+    <p>Bonjour ${ user.login }</p>
 </c:if>
 <p>
-<h3>Liste des users</h3>
 
-<c:forEach items="${ users }" var="user">
-    <c:out value = "${user.login}"/> / <c:out value = "${user.password}"/><br>
-</c:forEach>
-
-<button><a href="/test1/logout">Se Deconnecter</a></button>
 </body>
 </html>
