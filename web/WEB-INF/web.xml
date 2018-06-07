@@ -13,8 +13,6 @@
         </jsp-property-group>
     </jsp-config>
 
-
-
     <servlet>
         <servlet-name>Connection</servlet-name>
         <servlet-class>Connection</servlet-class>
@@ -31,15 +29,6 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Private</servlet-name>
-        <servlet-class>Private</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Private</servlet-name>
-        <url-pattern>/private</url-pattern>
     </servlet-mapping>
 
     <error-page>

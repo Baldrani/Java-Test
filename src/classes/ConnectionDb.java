@@ -15,33 +15,37 @@ public class ConnectionDb {
     private String dbname;
     private String dbuser;
     private String dbpwd;
-    private Connection conn;
+    private java.sql.Connection conn = null;
 
     public ConnectionDb() {
-        try {
-            //Context env = (Context)new InitialContext().lookup("java:comp/env");
-            //this.dbhost = (String)env.lookup("BDD-HOST");
-            //this.dbport = (String)env.lookup("BDD-PORT");
-            //this.dbname = (String)env.lookup("BDD-NAME");
-            //this.dbuser = (String)env.lookup("BDD-USER");
-            //this.dbpwd = (String)env.lookup("BDD-PWD");
 
-            Connection conn = null;
             try {
+                Context env = (Context)new InitialContext().lookup("java:comp/env");
+                this.dbhost = (String)env.lookup("BDD-HOST");
+                this.dbport = (String)env.lookup("BDD-PORT");
+                this.dbname = (String)env.lookup("BDD-NAME");
+                this.dbuser = (String)env.lookup("BDD-USER");
+                this.dbpwd = (String)env.lookup("BDD-PWD");
+
+                String url = "jdbc:mysql://"+this.dbhost+":"+this.dbport+"/"+this.dbname;
+                String user = this.dbuser;
+                String pwd = this.dbpwd;
+
+                System.out.println(url);
+
                 Class.forName("com.mysql.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:1234/javabase", "root", "secret");
-            } catch (SQLException | ClassNotFoundException e) {
+                this.conn = DriverManager.getConnection(url, user, pwd);
+
+            } catch (ClassNotFoundException | SQLException | NamingException e) {
                 e.printStackTrace();
+            } finally {
+                if (conn != null)
+                    try {
+                        conn.close();
+                    } catch (SQLException ignore) {
+
+                    }
             }
-
-            //String strUrl = "jdbc:mysql://"+this.dbhost+":"+this.dbport+"/"+this.dbname;
-
-            //this.conn = DriverManager.getConnection("jdbc:mysql://localhost/test","root","simple");
-            //this.conn = DriverManager.getConnection(strUrl, this.dbuser, this.dbpwd);é
-
-        } finally {
-
-        }
     }
     /**
      * endConnection
@@ -64,20 +68,18 @@ public class ConnectionDb {
         }
     }
 
-    //User part
+    //User Part
 
     /**
      * addUser
      * @param user
      */
     public void addUser(User user) {
-
         try {
             PreparedStatement preparedStatement = this.conn.prepareStatement("INSERT INTO users (login, password) VALUES(?, ?);");
             preparedStatement.setString(1, user.getLogin());
             preparedStatement.setString(2, user.getPassword());
-
-            preparedStatement.executeUpdate();
+            preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
