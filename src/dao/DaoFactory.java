@@ -35,8 +35,6 @@ public class DaoFactory {
             String user = this.dbuser;
             String pwd = this.dbpwd;
 
-            System.out.println(dburl);
-
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             this.conn = DriverManager.getConnection(dburl, user, pwd);
 
@@ -50,7 +48,6 @@ public class DaoFactory {
 
                 }
         }
-
         DaoFactory instance = new DaoFactory();
         return instance;
     }

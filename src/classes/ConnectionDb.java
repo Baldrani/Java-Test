@@ -31,8 +31,6 @@ public class ConnectionDb {
                 String user = this.dbuser;
                 String pwd = this.dbpwd;
 
-                System.out.println(url);
-
                 Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
                 this.conn = DriverManager.getConnection(url, user, pwd);
 

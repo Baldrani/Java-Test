@@ -21,11 +21,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="/create-user">Inscription</a>
             </li>
-            <form class="form-inline my-2 my-lg-0" action="/connection">
-                <input class="form-control mr-sm-2" type="mail" placeholder="Mail" aria-label="Mail">
-                <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connection</button>
-            </form>
+            <c:choose>
+                <c:when test="${ !empty sessionScope.user.login }">
+                    <form class="form-inline my-2 my-lg-0" action="/connection" method="post">
+                        <input class="form-control mr-sm-2" type="mail" placeholder="Mail" aria-label="Mail" name="email">
+                        <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" name="password">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connection</button>
+                    </form>
+                </c:when>
+                <c:otherwise>
+                    <p>Bonjour ${ sessionScope.user.login }</p>
+                    <a href="/logout">Logout</a>
+                </c:otherwise>
+            </c:choose>
         </ul>
 
         <!-- TODO IF LOGED IN LOGOUT BUTTON -->

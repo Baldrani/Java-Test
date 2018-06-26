@@ -12,6 +12,7 @@
     </div>
     <main class="container-fluid">
         <div class="row">
+            <p>${ !empty message ? message : '' }</p>
             <jsp:doBody/>
         </div>
     </main>
