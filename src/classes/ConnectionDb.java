@@ -27,16 +27,16 @@ public class ConnectionDb {
                 this.dbuser = (String)env.lookup("BDD-USER");
                 this.dbpwd = (String)env.lookup("BDD-PWD");
 
-                String url = "jdbc:mysql://"+this.dbhost+":"+this.dbport+"/"+this.dbname;
+                String url = "jdbc:mysql://"+this.dbhost+":"+this.dbport+"/"+this.dbname+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
                 String user = this.dbuser;
                 String pwd = this.dbpwd;
 
                 System.out.println(url);
 
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
                 this.conn = DriverManager.getConnection(url, user, pwd);
 
-            } catch (ClassNotFoundException | SQLException | NamingException e) {
+            } catch (ClassNotFoundException | SQLException | NamingException | IllegalAccessException | InstantiationException e) {
                 e.printStackTrace();
             } finally {
                 if (conn != null)

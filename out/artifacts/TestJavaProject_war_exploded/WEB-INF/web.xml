@@ -51,9 +51,8 @@
     <env-entry>
         <env-entry-name>BDD-NAME</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>java2</env-entry-value>
+        <env-entry-value>java</env-entry-value>
     </env-entry>
-
     <env-entry>
         <env-entry-name>BDD-USER</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
@@ -63,7 +62,7 @@
     <env-entry>
         <env-entry-name>BDD-PWD</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>azerty123</env-entry-value>
+        <env-entry-value>rootmysql</env-entry-value>
     </env-entry>
 
 </web-app>

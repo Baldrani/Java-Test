@@ -1,9 +1,12 @@
 package dao;
 
+import java.util.List;
 import beans.User;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+public interface UserDao {
+    void add( User user ) throws DaoException;
+    List<User> lister() throws DaoException;
+}
 
 /*
 public class UserDAO extends DAO<User>{
