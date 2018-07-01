@@ -1,4 +1,4 @@
-package classes;
+package servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns="/")
-public class Welcome extends HttpServlet {
+@WebServlet(name = "WelcomeServlet", urlPatterns="/")
+public class WelcomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/welcome.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/welcome.jsp").forward(request, response);
     }
 }
