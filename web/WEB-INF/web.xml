@@ -13,19 +13,6 @@
         </jsp-property-group>
     </jsp-config>
 
-    <welcome-file-list>
-        <welcome-file>welcome.jsp</welcome-file>
-    </welcome-file-list>
-
-    <servlet>
-        <servlet-name>Logout</servlet-name>
-        <servlet-class>Logout</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Logout</servlet-name>
-        <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-
     <error-page>
         <error-code>404</error-code>
         <location>/error</location>

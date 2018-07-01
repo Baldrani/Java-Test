@@ -1,18 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: onyrick
-  Date: 22/05/18
-  Time: 10:21
-  To change this template use File | Settings | File Templates.
---%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:layout>
-
-    <jsp:attribute name="header">
-    </jsp:attribute>
-
-    <jsp:body>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<html>
+<body>
+<%@include file="header.jsp"%>
+<main class="container-fluid">
+    <div class="row">
+        <p>${ !empty message ? message : '' }</p>
         <form action="create-user" method="post" class="m-auto w-75">
             <div class="card mt-5">
                 <div class="card-header">
@@ -39,6 +31,8 @@
                 </div>
             </div>
         </form>
-    </jsp:body>
-
-</t:layout>
+    </div>
+</main>
+<%@include file="footer.jsp"%>
+</body>
+</html>
