@@ -9,7 +9,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <!--  TODO CHANGER le sr-only en fonction de la page + link active -->
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(TODO )</span></a>
             </li>
@@ -18,25 +17,26 @@
             </li>
         </ul>
         <ul class="navbar-nav navbar-right">
-            <li class="nav-item">
-                <a class="nav-link" href="/create-user">Inscription</a>
-            </li>
-            <p id="test">${ sessionScope.user.login }</p>
-            <p id="test-equal-vide">${ sessionScope.user.login == "" }</p>
-            <p id="test-empty">${ empty sessionScope.user.login}</p>
-            <c:if test="${ empty sessionScope.user.login == false }">
+            <c:if test="${ empty user }">
+                <li class="nav-item">
+                    <a class="nav-link" href="/create-user">Inscription</a>
+                </li>
                 <form class="form-inline my-2 my-lg-0" action="/connection" method="post">
                     <input class="form-control mr-sm-2" type="mail" placeholder="Mail" aria-label="Mail" name="email">
                     <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" name="password">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connection</button>
                 </form>
             </c:if>
-            <c:if test="${ empty sessionScope.user.login == true }">
-                <p>Bonjour ${ sessionScope.user.login }</p>
-                <a href="/logout">Logout</a>
+            <c:if test="${ !empty user }">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ${ user.login }
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                </li>
             </c:if>
         </ul>
-
-        <!-- TODO IF LOGED IN LOGOUT BUTTON -->
     </div>
 </nav>

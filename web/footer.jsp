@@ -1,1 +1,1 @@
-<script src="dist/main.js"></script>
+test
