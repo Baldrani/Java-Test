@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet(name = "WelcomeServlet", urlPatterns="/")
 public class WelcomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("test");
+        System.out.println("Coucou mael");
         this.getServletContext().getRequestDispatcher("/welcome.jsp").forward(request, response);
     }
 }
