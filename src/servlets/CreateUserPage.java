@@ -23,7 +23,7 @@ public class CreateUserPage extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //TODO Redirect to private if connected
-        this.getServletContext().getRequestDispatcher("/WEB-INF/create_user.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/create_user.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -30,7 +30,7 @@ public class TestPage extends HttpServlet {
             //request.setAttribute("erreur", e.getMessage());
             //throw new DaoException("Il y a une erreur mais je ne sais où ", e.getMessage());
         }
-        this.getServletContext().getRequestDispatcher("/WEB-INF/create_user.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/create_user.jsp").forward(request, response);
     }
 
 

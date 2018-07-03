@@ -18,7 +18,7 @@ public class PrivatePage extends HttpServlet{
         {
             //TODO 404
         }
-        this.getServletContext().getRequestDispatcher("/WEB-INF/private.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/private.jsp").forward(request, response);
     }
 
 }
