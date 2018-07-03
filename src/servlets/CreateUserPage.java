@@ -28,15 +28,15 @@ public class CreateUserPage extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getParameter("password-confirm").trim().compareTo("") != 0 && request.getParameter("password").trim().compareTo("") != 0 && request.getParameter("email").trim().compareTo("") != 0 && request.getParameter("login").trim().compareTo("") != 0) {
+            System.out.println("First good");
             if (request.getParameter("password").equals(request.getParameter("password-confirm"))) {
+                System.out.println("Second Good");
                 try {
                     User user = new User();
                     user.setLogin(request.getParameter("login"));
                     user.setEmail(request.getParameter("email"));
                     user.setPassword(request.getParameter("password"));
                     userDao.add(user);
-
-                    //request.setAttribute("users", userDao.lister()); //TODO POUR QUOI FAIRE ?
 
                     HttpSession session = request.getSession();
                     session.setAttribute("connected", true);
