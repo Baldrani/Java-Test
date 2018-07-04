@@ -34,7 +34,8 @@ public class Connection extends HttpServlet {
                 request.setAttribute("erreur", e.getMessage());
             }
             response.sendRedirect("/private");
+            return;
         }
-        //System.out.println("Field not filled");
+        System.out.println("Field not filled");
     }
 }

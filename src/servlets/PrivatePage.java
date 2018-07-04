@@ -13,12 +13,11 @@ public class PrivatePage extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute( "user" );
-        System.out.println(user.toString());
-        System.out.println(user);
         if(session.getAttribute("user") == null)
         {
-            System.out.println("ICI");
-            //TODO 404
+            request.setAttribute("erreur", "Vous devez ête connecté");
+            response.sendRedirect("/");
+            return;
         }
         this.getServletContext().getRequestDispatcher("/private.jsp").forward(request, response);
     }
