@@ -28,6 +28,9 @@
                 </form>
             </c:if>
             <c:if test="${ !empty user }">
+                <li class="nav-item">
+                    <a class="nav-link" href="/my-account">Mon Compte</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         ${ user.login }

@@ -1,0 +1,55 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <%@include file="head.jsp"%>
+    <title></title>
+</head>
+<body>
+<%@include file="header.jsp"%>
+<div class="container">
+
+    <form action="modify-user" method="post" class="m-auto w-75">
+        <div class="card mt-5">
+            <div class="card-header">
+                Informations Personnelles
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="login">Pseudo : </label>
+                    <input type="text" id="login" name="login" class="form-control" value="${ user.login }">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email : </label>
+                    <input type="email" id="email" name="email" class="form-control" value="${ user.email }">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe : </label>
+                    <input type="password" id="password" name="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password-confirm">Confirmation du mot de passe : </label>
+                    <input type="password" id="password-confirm" name="password-confirm" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="particulier" name="type" value="particulier" <c:if test="${ user.type == 'particulier' }">checked</c:if> />
+                    <label for="particulier">Particulier</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="radio" id="entreprise" name="type" value="entreprise" <c:if test="${ user.type == 'entreprise' }">checked</c:if> />
+                    <label for="entreprise">Entreprise</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="radio" id="association" name="type" value="association" <c:if test="${ user.type == 'association' }">checked</c:if> />
+                    <label for="association">Association</label>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Modifier">
+            </div>
+        </div>
+    </form>
+
+</div>
+<%@include file="footer.jsp"%>
+</body>
+</html>

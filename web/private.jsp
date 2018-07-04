@@ -8,7 +8,28 @@
 <%@include file="header.jsp"%>
 <div class="container">
     <div class="row">
-        Private page
+        <p>Bonjour ${ user.login },</p>
+    </div>
+    <div class="row">
+        <p>vous pouvez désormais accéder à toutes nos options de création d’URL raccourcies</p>
+    </div>
+    <div class="row">
+        <p> Avec mot de passe</p>
+    </div>
+    <div class="row">
+        <p> Avec mot de passe différents</p>
+    </div>
+    <div class="row">
+        <p> A durée limitée</p>
+    </div>
+    <div class="row">
+        <p> A durée périodique</p>
+    </div>
+    <div class="row">
+        <p> Création par lots</p>
+    </div>
+    <div class="row">
+        <p> Visualisation des statistiques</p>
     </div>
 </div>
 <%@include file="footer.jsp"%>

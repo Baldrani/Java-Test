@@ -7,6 +7,7 @@ public class User {
     private String password;
     private String type;
     private String create_at;
+    private String modified_at;
 
     public int getId() { return id; }
 
@@ -31,6 +32,10 @@ public class User {
     public String getCreateAt() { return create_at; }
 
     public void setCreateAt(String create_at) { this.create_at = create_at; }
+
+    public String getModifiedAt() { return modified_at; }
+
+    public void setModifiedAt(String modified_at) { this.modified_at = modified_at; }
 
     public String toString(){
         return "Je suis " + this.getLogin() + ", " + getEmail() + ", " + getId();
