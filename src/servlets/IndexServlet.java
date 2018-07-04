@@ -7,10 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "WelcomeServlet", urlPatterns="/")
-public class WelcomeServlet extends HttpServlet {
+@WebServlet(name = "IndexServlet", urlPatterns="/")
+public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Coucou mael");
-        this.getServletContext().getRequestDispatcher("/welcome.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }

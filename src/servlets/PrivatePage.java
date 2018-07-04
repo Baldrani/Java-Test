@@ -14,8 +14,10 @@ public class PrivatePage extends HttpServlet{
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute( "user" );
         System.out.println(user.toString());
-        if(session.getAttribute("login") == null)
+        System.out.println(user);
+        if(session.getAttribute("user") == null)
         {
+            System.out.println("ICI");
             //TODO 404
         }
         this.getServletContext().getRequestDispatcher("/private.jsp").forward(request, response);

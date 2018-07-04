@@ -16,7 +16,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(100),
   `email` varchar(100),
-  `mdp` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
   `type` varchar(100),
   `create_at` datetime,
   `modified_at` datetime,
