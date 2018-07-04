@@ -5,3 +5,4 @@ out
 *.ipr
 persistence.xml
 .ideaDataSources/
+web.xml
