@@ -1,9 +1,16 @@
 package beans;
 
 public class User {
+    private int id;
     private String login;
     private String email;
     private String password;
+    private String type;
+    private String create_at;
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
     public String getLogin() { return login; }
 
@@ -17,7 +24,15 @@ public class User {
 
     public void setPassword(String password) { this.password = password; }
 
+    public String getType() { return type; }
+
+    public void setType(String type) { this.type = type; }
+
+    public String getCreateAt() { return create_at; }
+
+    public void setCreateAt(String create_at) { this.create_at = create_at; }
+
     public String toString(){
-        return "Je suis " + this.getLogin();
+        return "Je suis " + this.getLogin() + ", " + getEmail() + ", " + getId();
     }
 }

@@ -20,10 +20,12 @@ public class UserDaoImpl implements UserDao {
 
         try {
             conn = daoFactory.getConnection();
-            preparedStatement = conn.prepareStatement("INSERT INTO user (login, email, password) VALUES (?, ?, ?);");
+            preparedStatement = conn.prepareStatement("INSERT INTO user (login, email, password, type, create_at) VALUES (?, ?, ?, ?, ?);");
             preparedStatement.setString(1, user.getLogin());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setString(4, user.getType());
+            preparedStatement.setString(5, user.getCreateAt());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,17 +46,20 @@ public class UserDaoImpl implements UserDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst() ) {
                 System.out.println("No data");
+                return null;
             } else {
                 if(resultSet.next()) {
                     do {
                         user2return.setLogin(resultSet.getString("login"));
                         user2return.setEmail(resultSet.getString("email"));
+                        user2return.setId(resultSet.getInt("id"));
                     } while (resultSet.next());
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return  user2return;
     }
 

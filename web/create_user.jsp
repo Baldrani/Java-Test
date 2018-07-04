@@ -31,6 +31,20 @@
                         <label for="password-confirm">Confirmation du mot de passe : </label>
                         <input type="password" id="password-confirm" name="password-confirm" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <input type="radio" id="particulier" name="type" value="particulier" checked />
+                        <label for="particulier">Particulier</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="radio" id="entreprise" name="type" value="entreprise"/>
+                        <label for="entreprise">Entreprise</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="radio" id="association" name="type" value="association"/>
+                        <label for="association">Association</label>
+                    </div>
                     <input type="submit" class="btn btn-primary" value="Envoyer">
                 </div>
             </div>
