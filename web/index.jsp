@@ -6,9 +6,19 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
+<c:if test="${!empty message}">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                    <div class="alert alert-danger" role="alert">
+                        ${ message }
+                    </div>
+            </div>
+        </div>
+    </div>
+</c:if>
 <div class="container">
     <div class="row">
-        <p>${ !empty message ? message : '' }</p>
         <form action="put-url" method="post" class="m-auto w-75">
             <div class="card mt-5">
                 <div class="card-header">
@@ -19,13 +29,21 @@
                         <label for="url">Url : </label>
                         <input type="url" id="url" name="url" placeholder="https://example.com" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label for="password">Mot de passe : </label>
-                        <input type="password" id="password" name="password" class="form-control">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="passwordCheck">
+                        <label class="form-check-label" for="passwordCheck"> Ajouter un mot de passe </label>
+                    </div>
+                    <div class="form-group passwordChecked">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="••••••••">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Raccourcir">
                 </div>
             </div>
+            <script>
+                $('#passwordCheck').on('click', function(){
+                    $('.passwordChecked').fadeToggle();
+                })
+            </script>
         </form>
     </div>
 </div>

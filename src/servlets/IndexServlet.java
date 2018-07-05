@@ -12,11 +12,11 @@ import java.awt.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 import beans.User;
 import dao.DaoFactory;
 import dao.UrlDao;
-import dao.UrlDaoImpl;
 
 @WebServlet(name = "IndexServlet", urlPatterns="/")
 public class IndexServlet extends HttpServlet {
@@ -46,7 +46,10 @@ public class IndexServlet extends HttpServlet {
                     {
                         url.setUserId(user.getId());
                     }
-                    url.setShortcut("localhost:8484/1");
+
+                    String uniqueID = UUID.randomUUID().toString();
+                    url.setShortcut("localhost:"+request.getLocalPort()+"/u/"+uniqueID);
+                    //TODO Rethink uniqueness
                     url.setBase(request.getParameter("url"));
                     url.setStartingDate(startingDate);
                     if(request.getParameter("password").trim().compareTo("") != 0) {

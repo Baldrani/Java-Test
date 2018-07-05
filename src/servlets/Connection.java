@@ -31,7 +31,8 @@ public class Connection extends HttpServlet {
                 session.setAttribute("connected", true);
             } catch (Exception e) {
                 System.out.println("User not found");
-                request.setAttribute("erreur", e.getMessage());
+                request.getSession().setAttribute("message", "Ce compte n'existe pas");
+                //request.setAttribute("erreur", e.getMessage());
             }
             response.sendRedirect("/private");
             return;
