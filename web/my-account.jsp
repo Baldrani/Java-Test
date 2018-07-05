@@ -8,7 +8,7 @@
 <%@include file="header.jsp"%>
 <div class="container">
     <a href="/modify-user">Informations Personnelles</a>
-    <a>Mes Urls</a>
+    <a href="/list-urls">Mes Urls</a>
 </div>
 <%@include file="footer.jsp"%>
 </body>

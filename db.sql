@@ -4,7 +4,8 @@ CREATE TABLE `url` (
   `base` varchar(200) DEFAULT NULL,
   `shortcut` varchar(200) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
-  `starting_date` datetime,
+  `create_at` datetime,
+  `starting_date` datetime DEFAULT NULL,
   `ending_date` datetime DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)

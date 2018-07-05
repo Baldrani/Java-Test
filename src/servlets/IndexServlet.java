@@ -38,7 +38,7 @@ public class IndexServlet extends HttpServlet {
                     Url url = new Url();
                     Date date = new Date();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    String startingDate = sdf.format(date);
+                    String createAt = sdf.format(date);
 
                     HttpSession session = request.getSession();
                     User user = (User) session.getAttribute("user");
@@ -51,7 +51,7 @@ public class IndexServlet extends HttpServlet {
                     url.setShortcut("localhost:"+request.getLocalPort()+"/u/"+uniqueID);
                     //TODO Rethink uniqueness
                     url.setBase(request.getParameter("url"));
-                    url.setStartingDate(startingDate);
+                    url.setCreateAt(createAt);
                     if(request.getParameter("password").trim().compareTo("") != 0) {
                         url.setPassword(request.getParameter("password"));
                     }

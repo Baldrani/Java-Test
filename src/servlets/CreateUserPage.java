@@ -45,6 +45,7 @@ public class CreateUserPage extends HttpServlet {
                     user.setType(request.getParameter("type"));
                     userDao.add(user);
 
+                    user = userDao.find(request.getParameter("email"), request.getParameter("password"));
                     HttpSession session = request.getSession();
                     session.setAttribute("connected", true);
                     session.setAttribute("user", user);

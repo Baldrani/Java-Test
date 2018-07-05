@@ -6,6 +6,7 @@ public class Url {
     private String base;
     private String shortcut;
     private String starting_date;
+    private String create_at;
     private String password;
 
     public int getId() { return id; }
@@ -27,6 +28,10 @@ public class Url {
     public String getStartingDate() { return starting_date; }
 
     public void setStartingDate(String starting_date) { this.starting_date = starting_date; }
+
+    public String getCreateAt() { return create_at; }
+
+    public void setCreateAt(String create_at) { this.create_at = create_at; }
 
     public String getPassword() { return password; }
 
