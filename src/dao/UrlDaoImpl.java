@@ -22,12 +22,16 @@ public class UrlDaoImpl implements UrlDao {
 
         try {
             conn = daoFactory.getConnection();
-            preparedStatement = conn.prepareStatement("INSERT INTO url (base, shortcut, create_at, password, user_id) VALUES (?, ?, ?, ?, ?);");
+            preparedStatement = conn.prepareStatement("INSERT INTO url (base, shortcut, create_at, password, user_id, max_clic, captcha, starting_date, ending_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
             preparedStatement.setString(1, url.getBase());
             preparedStatement.setString(2, url.getShortcut());
             preparedStatement.setString(3, url.getCreateAt());
             preparedStatement.setString(4, url.getPassword());
             preparedStatement.setInt(5, url.getUserId());
+            preparedStatement.setInt(6, url.getMaxClic());
+            preparedStatement.setInt(7, url.getCaptcha());
+            preparedStatement.setString(8, url.getStartingDate());
+            preparedStatement.setString(9, url.getEndingDate());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

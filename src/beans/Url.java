@@ -6,6 +6,9 @@ public class Url {
     private String base;
     private String shortcut;
     private String starting_date;
+    private String ending_date;
+    private int max_clic;
+    private int captcha;
     private String create_at;
     private String password;
 
@@ -28,6 +31,19 @@ public class Url {
     public String getStartingDate() { return starting_date; }
 
     public void setStartingDate(String starting_date) { this.starting_date = starting_date; }
+
+    public String getEndingDate() { return ending_date; }
+
+    public void setEndingDate(String ending_date) { this.ending_date = ending_date; }
+
+    public int getMaxClic() { return max_clic; }
+
+    public void setMaxClic(int max_clic) { this.max_clic = max_clic; }
+
+    public int getCaptcha() { return captcha; }
+
+    public void setCaptcha(int captcha) { this.captcha = captcha; }
+
 
     public String getCreateAt() { return create_at; }
 

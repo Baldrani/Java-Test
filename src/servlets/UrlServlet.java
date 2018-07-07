@@ -46,7 +46,7 @@ public class UrlServlet extends HttpServlet {
         if(request.getParameter("password").trim().compareTo("") != 0) {
             try {
                 Url url = urlDao.find(request.getParameter("url"));
-                if (request.getParameter("password") == url.getPassword()) {
+                if (request.getParameter("password").compareTo(url.getPassword()) == 0) {
                     System.out.println("OK");
                     response.sendRedirect(url.getBase());
                 }

@@ -4,6 +4,8 @@ CREATE TABLE `url` (
   `base` varchar(200) DEFAULT NULL,
   `shortcut` varchar(200) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
+  `captcha` int(11) DEFAULT NULL,
+  `max_clic` int(11) DEFAULT NULL,
   `create_at` datetime,
   `starting_date` datetime DEFAULT NULL,
   `ending_date` datetime DEFAULT NULL,
