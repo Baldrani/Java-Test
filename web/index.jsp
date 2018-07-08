@@ -43,29 +43,35 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="radio" id="debut_fin" name="validate" value="debut_fin" />
+                            <div class="form-row">
+                                <input type="radio" id="debut_fin" name="validate" value="debut_fin"/>&nbsp;
+                                <label for="date_base">Du: </label>&nbsp;
+                                <div class="col-4">
+                                    <input type="datetime-local" id="date_base" name="date_base" class="form-control">
+                                </div>
+                                &nbsp;<label for="date_fin">Au: </label>&nbsp;
+                                <div class="col-4">
+                                    <input type="datetime-local" id="date_fin" name="date_fin" class="form-control">
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="date_base">Du: </label>
-                            <input type="datetime-local" id="date_base" name="date_base" class="form-control">
+                            <div class="form-row">
+                                <input type="radio" id="max_clic" name="validate" value="max_clic" />&nbsp;
+                                <label for="clic">Max clics : </label>&nbsp;
+                                <div class="col-4">
+                                    <input type="number" id="clic" name="clic" class="form-control">
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="date_fin">Au: </label>
-                            <input type="datetime-local" id="date_fin" name="date_fin" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="radio" id="max_clic" name="validate" value="max_clic" />
-                        </div>
-                        <div class="form-group">
-                            <label for="clic">Max clics : </label>
-                            <input type="number" id="clic" name="clic" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="radio" id="duree" name="validate" value="duree" />
-                        </div>
-                        <div class="form-group">
-                            <label for="no_debut">Valable jusqu'au: </label>
-                            <input type="datetime-local" id="no_debut" name="no_debut" class="form-control">
+                            <div class="form-row">
+                                <input type="radio" id="duree" name="validate" value="duree" />&nbsp;
+                            <label for="no_debut">Valable jusqu'au: </label>&nbsp;
+                            <div class="col-4">
+                                <input type="datetime-local" id="no_debut" name="no_debut" class="form-control">
+                            </div>
+                            </div>
                         </div>
 
                     </c:if>
@@ -87,6 +93,8 @@
                 </c:if>
             </div>
             <script>
+                $('.passwordChecked').hide();
+
                 $('#passwordCheck').on('click', function(){
                     $('.passwordChecked').fadeToggle();
                 });

@@ -51,14 +51,9 @@ public class IndexServlet extends HttpServlet {
                     HttpSession session = request.getSession();
                     User user = (User) session.getAttribute("user");
 
-                    System.out.println("0");
-                    if (request.getParameter("captchaCheck") != null && request.getParameter("captchaCheck").compareTo("on") == 0)
-                    {
-                        System.out.println("1");
+                    if (request.getParameter("captchaCheck") != null && request.getParameter("captchaCheck").compareTo("on") == 0) {
                         url.setCaptcha(1);
                     }
-
-                    System.out.println("2");
                     if (request.getParameter("validate") != null) {
                         if (request.getParameter("validate").compareTo("max_clic") == 0) {
                             url.setMaxClic(parseInt(request.getParameter("clic")));
@@ -96,7 +91,6 @@ public class IndexServlet extends HttpServlet {
                     request.setAttribute("erreur", e.getMessage());
                 }
         }
-
         response.sendRedirect("/");
     }
 }
