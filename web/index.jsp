@@ -38,7 +38,7 @@
                     </div>
                     <c:if test="${!empty user}">
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" value="true" id="captchaCheck">
+                            <input class="form-check-input" type="checkbox" id="captchaCheck" name="captchaCheck">
                             <label class="form-check-label" for="captchaCheck"> Ajouter un captcha </label>
                         </div>
 

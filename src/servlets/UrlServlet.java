@@ -6,6 +6,7 @@ import beans.User;
 import dao.DaoFactory;
 import dao.StatDao;
 import dao.UrlDao;
+import nl.captcha.Captcha;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,7 +38,7 @@ public class UrlServlet extends HttpServlet {
             int count = statDao.lister(url);
             if ((url.getEndingDate() != null && url.getEndingDate().compareTo(dateNow) < 0)
                  || (url.getStartingDate() != null && url.getStartingDate().compareTo(dateNow) > 0)
-                 || count >= url.getMaxClic())
+                 || (url.getMaxClic() > 0 && count >= url.getMaxClic()))
             {
                 url.setCaptcha(0);
                 url.setPassword(null);
@@ -47,7 +48,7 @@ public class UrlServlet extends HttpServlet {
                 this.getServletContext().getRequestDispatcher("/u.jsp").forward(request, response);
                 return;
             }
-            if (url.getPassword() != null) {
+            if (url.getPassword() != null || url.getCaptcha() != 0) {
                 request.getSession().setAttribute("link", url);
                 request.getSession().setAttribute("uri", request.getRequestURI());
                 this.getServletContext().getRequestDispatcher("/u.jsp").forward(request, response);
@@ -67,25 +68,52 @@ public class UrlServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getParameter("password").trim().compareTo("") != 0) {
-            try {
-                Url url = urlDao.find(request.getParameter("url"));
-                Date now = new Date();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                String dateNow = sdf.format(now);
+        try {
+            Url url = urlDao.find(request.getParameter("url"));
+            Date now = new Date();
+            int okCaptcha = 1;
+            int okPassword = 1;
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String dateNow = sdf.format(now);
+            HttpSession session = request.getSession();
 
-                if (request.getParameter("password").compareTo(url.getPassword()) == 0) {
-                    Stat stat = new Stat();
-                    stat.setClickedAt(dateNow);
-                    stat.setIdUrl(url.getId());
-                    statDao.add(stat);
-                    response.sendRedirect(url.getBase());
+            Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
+            request.setCharacterEncoding("UTF-8"); // Do this so we can capture non-Latin chars
+
+            if (request.getParameter("answer_captcha") != null){
+                String answer = request.getParameter("answer_captcha");
+                if (!captcha.isCorrect(answer)) {
+                    okCaptcha = 0;
                 }
-            } catch (Exception e) {
-                System.out.println("Url not found");
-                request.getSession().setAttribute("messageVerif", "Cette url n'existe pas");
             }
-            return;
+            if (request.getParameter("password") != null) {
+                if (request.getParameter("password").trim().compareTo("") != 0) {
+                    if (request.getParameter("password").compareTo(url.getPassword()) != 0) {
+                        okPassword = 0;
+                    }
+                }
+            }
+            if (okCaptcha == 1 && okPassword == 1)
+            {
+                Stat stat = new Stat();
+                stat.setClickedAt(dateNow);
+                stat.setIdUrl(url.getId());
+                statDao.add(stat);
+                response.sendRedirect(url.getBase());
+            }
+            else
+            {
+                request.getSession().setAttribute("link", url);
+                request.getSession().setAttribute("uri", request.getRequestURI());
+                request.getSession().setAttribute("badEnter", "Mauvais mot de passe ou erreur de captcha");
+                this.getServletContext().getRequestDispatcher("/u.jsp").forward(request, response);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Url not found");
+            request.getSession().setAttribute("messageVerif", "Cette url n'existe pas");
         }
+
     }
 }

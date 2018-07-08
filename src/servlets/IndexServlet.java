@@ -37,7 +37,6 @@ public class IndexServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println(request.getParameter("captchaCheck"));
         if(request.getParameter("url").trim().compareTo("") != 0) {
             if ((request.getParameter("validate") == null)
                     || (request.getParameter("validate").compareTo("debut_fin") == 0 && request.getParameter("date_base").compareTo("") != 0  && request.getParameter("date_fin").compareTo("") != 0)
@@ -52,6 +51,14 @@ public class IndexServlet extends HttpServlet {
                     HttpSession session = request.getSession();
                     User user = (User) session.getAttribute("user");
 
+                    System.out.println("0");
+                    if (request.getParameter("captchaCheck") != null && request.getParameter("captchaCheck").compareTo("on") == 0)
+                    {
+                        System.out.println("1");
+                        url.setCaptcha(1);
+                    }
+
+                    System.out.println("2");
                     if (request.getParameter("validate") != null) {
                         if (request.getParameter("validate").compareTo("max_clic") == 0) {
                             url.setMaxClic(parseInt(request.getParameter("clic")));

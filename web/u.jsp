@@ -17,6 +17,17 @@
         </div>
     </div>
 </c:if>
+<c:if test="${!empty badEnter}">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-danger" role="alert">
+                        ${ badEnter }
+                </div>
+            </div>
+        </div>
+    </div>
+</c:if>
 <div class="container">
     <div class="row">
         <form action="${uri}" method="post" class="m-auto w-75">
@@ -36,10 +47,8 @@
                         </div>
                     </c:if>
                     <c:if test="${link.getCaptcha() == 1}">
-                        <div class="form-group">
-                            <label for="captcha">Capcha:</label>
-                            <input type="password" id="captcha" name="captcha" class="form-control" placeholder="••••••••">
-                        </div>
+                        <img src="/stickyImg" />
+                            <input name="answer_captcha" />
                     </c:if>
                     <c:if test="${empty messageVerif}">
                         <input type="submit" class="btn btn-primary" value="Ouvrir">
