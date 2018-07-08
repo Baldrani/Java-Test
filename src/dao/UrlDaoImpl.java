@@ -56,12 +56,16 @@ public class UrlDaoImpl implements UrlDao {
             } else {
                 if(resultSet.next()) {
                     do {
-                        url2return.setId(resultSet.getInt("id"));
+                        url2return.setId(resultSet.getInt(  "id"));
                         url2return.setUserId(resultSet.getInt("user_id"));
                         url2return.setBase(resultSet.getString("base"));
                         url2return.setShortcut(resultSet.getString("shortcut"));
                         url2return.setPassword(resultSet.getString("password"));
                         url2return.setCreateAt(resultSet.getString("create_at"));
+                        url2return.setStartingDate(resultSet.getString("starting_date"));
+                        url2return.setEndingDate(resultSet.getString("ending_date"));
+                        url2return.setCaptcha(resultSet.getInt("captcha"));
+                        url2return.setMaxClic(resultSet.getInt("max_clic"));
                         //url2return.setStartingDate(resultSet.getString("starting_date")); //TODO ending_date
                     } while (resultSet.next());
                 }

@@ -6,12 +6,12 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
-<c:if test="${!empty message}">
+<c:if test="${!empty messageVerif}">
     <div class="container mt-5">
         <div class="row">
             <div class="col">
                 <div class="alert alert-danger" role="alert">
-                        ${ message }
+                        ${ messageVerif }
                 </div>
             </div>
         </div>
@@ -29,11 +29,21 @@
                         <label for="url">Url demandée: </label>
                         <input type="url" id="url" name="url" value="${link.getShortcut()}" class="form-control" readonly>
                     </div>
-                    <div class="form-group passwordChecked">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" class="form-control" placeholder="••••••••">
-                    </div>
-                    <input type="submit" class="btn btn-primary" value="Ouvrir">
+                    <c:if test="${link.getPassword() != null}">
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="••••••••">
+                        </div>
+                    </c:if>
+                    <c:if test="${link.getCaptcha() == 1}">
+                        <div class="form-group">
+                            <label for="captcha">Capcha:</label>
+                            <input type="password" id="captcha" name="captcha" class="form-control" placeholder="••••••••">
+                        </div>
+                    </c:if>
+                    <c:if test="${empty messageVerif}">
+                        <input type="submit" class="btn btn-primary" value="Ouvrir">
+                    </c:if>
                 </div>
             </div>
         </form>

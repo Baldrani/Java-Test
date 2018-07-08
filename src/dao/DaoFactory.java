@@ -67,5 +67,6 @@ public class DaoFactory {
         return new UserDaoImpl(this);
     }
     public UrlDao getUrlDao() { return new UrlDaoImpl(this); }
+    public StatDao getStatDao() { return new StatDaoImpl(this); }
 
 }
