@@ -31,7 +31,8 @@ public class ListUrls  extends  HttpServlet{
         User user = (User) session.getAttribute( "user" );
         if(session.getAttribute("user") == null)
         {
-            request.setAttribute("erreur", "Vous devez ête connecté");
+            request.setAttribute("noConnexion", "Vous devez être connecté");
+            //this.getServletContext().getRequestDispatcher("/").forward(request, response);
             response.sendRedirect("/");
             return;
         }

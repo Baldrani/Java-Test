@@ -23,8 +23,9 @@ public class Account extends HttpServlet{
         User user = (User) session.getAttribute( "user" );
         if(session.getAttribute("user") == null)
         {
-            request.setAttribute("erreur", "Vous devez ête connecté");
+            request.setAttribute("noConnexion", "Vous devez être connecté");
             response.sendRedirect("/");
+            //this.getServletContext().getRequestDispatcher("/").forward(request, response);
             return;
         }
         this.getServletContext().getRequestDispatcher("/my-account.jsp").forward(request, response);

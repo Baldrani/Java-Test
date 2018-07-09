@@ -34,6 +34,8 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().setAttribute("link", "");
         this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+        request.getSession().removeAttribute("noConnexion");
+        request.getSession().removeAttribute("message");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

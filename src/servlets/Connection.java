@@ -29,12 +29,20 @@ public class Connection extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 session.setAttribute("connected", true);
+                if (user == null)
+                {
+                    request.getSession().setAttribute("noConnexion", "Mauvais email ou mot de passe renseigné");
+                    response.sendRedirect("/");
+                    this.getServletContext().getRequestDispatcher("/").forward(request, response);
+                    return;
+                }
+                response.sendRedirect("/private");
+                return;
             } catch (Exception e) {
                 System.out.println("User not found");
-                request.getSession().setAttribute("message", "Ce compte n'existe pas");
+                request.getSession().setAttribute("noConnexion", "Mauvais email ou mot de passe renseigné");
                 //request.setAttribute("erreur", e.getMessage());
             }
-            response.sendRedirect("/private");
             return;
         }
         System.out.println("Field not filled");

@@ -36,8 +36,9 @@ public class Stat extends HttpServlet{
             User user = (User) session.getAttribute( "user" );
             if (session.getAttribute("user") == null)
             {
-                request.setAttribute("erreur", "Vous devez ête connecté");
+                request.setAttribute("noConnexion", "Vous devez être connecté");
                 response.sendRedirect("/");
+                //this.getServletContext().getRequestDispatcher("/").forward(request, response);
                 return;
             }
             request.getSession().setAttribute("url", url);
@@ -79,5 +80,6 @@ public class Stat extends HttpServlet{
             request.getSession().setAttribute("message", "Cette url n'existe pas");
         }
         this.getServletContext().getRequestDispatcher("/stat.jsp").forward(request, response);
+        request.getSession().removeAttribute("message");
     }
 }
