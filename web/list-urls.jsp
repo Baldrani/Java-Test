@@ -23,7 +23,7 @@
                 <td>${item.getShortcut()}</td>
                 <td>${item.getBase()}</td>
                 <td>${item.getCreateAt()}</td>
-                <td> voir</td>
+                <td><a href="/stat/${item.getAbsolute()}">Voir</a></td>
         </tr>
         </c:forEach>
         </tbody>

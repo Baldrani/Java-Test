@@ -92,9 +92,12 @@ public class UrlDaoImpl implements UrlDao {
             while (resultat.next()) {
                 String base = resultat.getString("base");
                 String shortcut = resultat.getString("shortcut");
-                String  create_at = resultat.getString("create_at");
+                String create_at = resultat.getString("create_at");
 
                 Url url = new Url();
+                String[] pathTemp = shortcut.split("/");
+
+                url.setAbsolute(pathTemp[2]);
                 url.setBase(base);
                 url.setShortcut(shortcut);
                 url.setCreateAt(create_at);

@@ -53,4 +53,31 @@ public class StatDaoImpl implements StatDao {
         return i;
     }
 
+    @Override
+    public List<Stat> reallister(Url url) throws DaoException {
+
+        List<Stat> stats = new ArrayList<Stat>();
+        Connection conn = null;
+        ResultSet resultat = null;
+        PreparedStatement preparedStatement = null;
+        int i = 0;
+
+        try {
+            conn = daoFactory.getConnection();
+            preparedStatement = conn.prepareStatement("SELECT id, clicked_at FROM stat WHERE id_url = ?;");
+            preparedStatement.setInt(1, url.getId());
+            resultat = preparedStatement.executeQuery();
+            while (resultat.next()) {
+                String clicked_at = resultat.getString("clicked_at");
+
+                Stat stat = new Stat();
+                stat.setClickedAt(clicked_at);
+                stats.add(stat);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return stats;
+    }
+
 }

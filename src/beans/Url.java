@@ -3,6 +3,7 @@ package beans;
 public class Url {
     private int id;
     private int user_id;
+    private String absolute;
     private String base;
     private String shortcut;
     private String starting_date;
@@ -23,6 +24,10 @@ public class Url {
     public String getBase() { return base; }
 
     public void setBase(String base) { this.base = base; }
+
+    public String getAbsolute() { return absolute; }
+
+    public void setAbsolute(String absolute) { this.absolute = absolute; }
 
     public String getShortcut() { return shortcut; }
 

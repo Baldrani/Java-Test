@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,7 +38,8 @@ public class ListUrls  extends  HttpServlet{
         try {
             this.urls = this.urlDao.lister(user);
             request.getSession().setAttribute("urls", urls);
-            this.urls.forEach((i)->System.out.println(i.getBase() + i.getShortcut() + i.getCreateAt()));
+            //this.urls.forEach((i)->System.out.println(i.getBase() + i.getShortcut() + i.getCreateAt()));
+
         }
         catch (Exception e)
         {
