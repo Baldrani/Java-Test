@@ -85,7 +85,7 @@
                                 <div class="form-group">
                                     <label for="link">Votre lien : </label>
                                     <input type="url" id="link" name="url" value="${ link }" class="form-control" readonly>
-                                    <button type="button" onclick="copyToClipboard()">Copier</button>
+                                    <button type="button" onclick="copyToClipboard()" class="btn btn-primary mt-2">Copier</button>
                                 </div>
                             </div>
                         </div>

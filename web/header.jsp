@@ -1,5 +1,8 @@
 <div class="row">
-    <div class="col-4">LOGO (Link to home)</div>
+    <div class="col-4">
+        <img src="assets/img/1024px-Bit.ly_Logo.svg.png" alt="">
+        <!-- TODO fix assets -->
+    </div>
     <div class="col-8">Pub (Changer a chaque page en mode random + link)</div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
