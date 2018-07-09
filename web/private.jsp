@@ -17,7 +17,7 @@
         <p> Avec mot de passe</p>
     </div>
     <div class="row">
-        <p> Avec mot de passe différents</p>
+        <p> Avec captcha</p>
     </div>
     <div class="row">
         <p> A durée limitée</p>
@@ -26,7 +26,7 @@
         <p> A durée périodique</p>
     </div>
     <div class="row">
-        <p> Création par lots</p>
+        <p> AVec un nombre maximum de clics</p>
     </div>
     <div class="row">
         <p> Visualisation des statistiques</p>

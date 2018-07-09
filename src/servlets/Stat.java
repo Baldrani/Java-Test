@@ -53,15 +53,14 @@ public class Stat extends HttpServlet{
                 String[] waiting = temp.getClickedAt().split(" ");
                 String [] format = waiting[0].split("-");
                 String last = format[2] + '/' + format[1] + '/' + format[0];
-                dates.add(last);
+                dates.add(waiting[0]);
             }
             HashMap<String, Integer> chartData = new HashMap<String, Integer>();
 
             for (int i = 0; i < dates.size(); i++)
             {
                 String date = dates.get(i);
-                if (chartData.containsKey(date) == true)
-                {
+                if (chartData.containsKey(date) == true) {
                     int nbDate = chartData.get(date) + 1;
                     chartData.remove(date);
                     chartData.put(date, nbDate);
@@ -71,9 +70,9 @@ public class Stat extends HttpServlet{
                     chartData.put(date, 1);
                 }
             }
-            request.getSession().setAttribute("chartData", chartData);
-            System.out.println(chartData);
-            System.out.println(dates);
+           Map<String, Integer> sortedMap = new TreeMap<String, Integer>(chartData);
+
+            request.getSession().setAttribute("chartData", sortedMap);
 
         } catch (Exception e) {
             System.out.println("Url not found");

@@ -37,44 +37,38 @@
         </tbody>
     </table>
 
-    <canvas id="chart" width="400" height="400"></canvas>
+    <canvas id="chart" width="400" height="200"></canvas>
     <script type="text/javascript">
         var ctx = document.getElementById("chart");
         var labels = [];
         var data = [];
         var timeFormat = "DD/MM/YYYY";
         <c:forEach items="${chartData}" var="stat">
-            labels.push(${stat.key});
+            labels.push("${stat.key}");
             data.push(${stat.value});
         </c:forEach>
 
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Nombre de clics',
-                    data: data,
-                }]
-            },
-            options: {
-                scales: {
-                    xAxes:[{
-                        type: 'time',
-                        display:true,
-                        scaleLabel:{
-                          display: true,
-                          labelString: 'Date'
-                        },
-                        time:{
-                            parser: timeFormat,
-                            unit: 'day',
-                            unitStepSize: 1
-                        }
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Nombre de clics',
+                        data: data,
                     }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                suggestedMin: 0,
+                                beginAtZero: true
+                            },
+                        }]
+                    }
                 }
-            }
-       });
+           });
     </script>
 </div>
 <%@include file="footer.jsp"%>
