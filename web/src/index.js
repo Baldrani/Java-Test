@@ -6,3 +6,5 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './../WEB-INF/assets/style/style.sass'
+
+$('body').css('background-color','red')

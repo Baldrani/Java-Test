@@ -1,24 +1,11 @@
-<div class="row">
-    <div class="col-4">
-        <img src="assets/img/1024px-Bit.ly_Logo.svg.png" alt="">
-        <!-- TODO fix assets -->
-    </div>
-    <div class="col-8">Pub (Changer a chaque page en mode random + link)</div>
-</div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
+    <a class="navbar-brand" href="/">
+        <img src="/img/logo.png" alt="" height="30" alt="">
+    </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(TODO )</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/presentation">Presentation</a>
-            </li>
-        </ul>
         <ul class="navbar-nav navbar-right">
             <c:if test="${ empty user }">
                 <li class="nav-item">

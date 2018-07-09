@@ -6,3 +6,4 @@ out
 persistence.xml
 .ideaDataSources/
 web.xml
+node_modules/
