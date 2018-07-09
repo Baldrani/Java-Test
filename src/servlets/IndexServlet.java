@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Date;
 import java.util.UUID;
 
@@ -76,9 +77,9 @@ public class IndexServlet extends HttpServlet {
                         url.setUserId(user.getId());
                     }
 
-                    String uniqueID = UUID.randomUUID().toString();
-                    url.setShortcut("localhost:"+request.getLocalPort()+"/u/"+uniqueID);
-                    //TODO Rethink uniqueness
+                    byte[] encodedBytes = Base64.getEncoder().encode(String.valueOf(urlDao.count() + 1).getBytes());
+                    url.setShortcut("localhost:"+request.getLocalPort()+"/u/"+new String(encodedBytes));
+
                     url.setBase(request.getParameter("url"));
                     url.setCreateAt(createAt);
                     if(request.getParameter("password").trim().compareTo("") != 0) {

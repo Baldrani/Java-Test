@@ -28,14 +28,13 @@
                 </form>
             </c:if>
             <c:if test="${ !empty user }">
-                <li class="nav-item">
-                    <a class="nav-link" href="/my-account">Mon Compte</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         ${ user.login }
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/my-account">Mon Compte</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/logout">Logout</a>
                     </div>
                 </li>

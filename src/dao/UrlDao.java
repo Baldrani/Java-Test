@@ -9,5 +9,5 @@ public interface UrlDao {
     void add( Url url ) throws DaoException;
     Url find( String shortcut ) throws DaoException;
     List<Url> lister(User user) throws DaoException;
-
+    Integer count() throws DaoException;
 }

@@ -109,4 +109,22 @@ public class UrlDaoImpl implements UrlDao {
         return urls;
     }
 
+    @Override
+    public Integer count() throws DaoException {
+        Connection conn = null;
+        ResultSet resultat = null;
+        Statement statement = null;
+        try {
+            conn = daoFactory.getConnection();
+            statement = conn.createStatement();
+            resultat = statement.executeQuery("SELECT COUNT(id) AS total FROM url");
+            if (resultat.next()) {
+                return resultat.getInt("total");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
