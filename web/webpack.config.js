@@ -11,13 +11,18 @@ module.exports = {
                 }
             },
             {
-                test: /\.s?[ac]ss$/,
-                include: /node_modules/,
+                //test: /\.s?[ac]ss$/,
+                test: /\.sass$/,
+                exclude: /node_modules/,
                 use: [
                     { loader: "style-loader" },
                     { loader: "css-loader", options: { sourceMap: true } },
                     { loader: "sass-loader", options: { sourceMap: true } }
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -27,5 +32,6 @@ module.exports = {
             jQuery: 'jquery',
             Popper: ['popper.js', 'default']
         })
-    ]
+    ],
+    watch: true
 };

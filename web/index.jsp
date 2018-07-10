@@ -30,6 +30,9 @@
 </c:if>
 <div class="container">
     <div class="row">
+        <div class="col-2 mt-5">
+            <img src="/img/pub1.png" alt="" class="mw-100 rounded" id="pub">
+        </div>
         <form action="put-url" method="post" class="m-auto w-75">
             <div class="card mt-5">
                 <div class="card-header">
@@ -103,19 +106,6 @@
                     </div>
                 </c:if>
             </div>
-            <script>
-                $('.passwordChecked').hide();
-
-                $('#passwordCheck').on('click', function(){
-                    $('.passwordChecked').fadeToggle();
-                });
-
-                function copyToClipboard() {
-                    var tocopy = document.getElementById('link');
-                    tocopy.select();
-                    document.execCommand("copy");
-                }
-            </script>
         </form>
 
     </div>
