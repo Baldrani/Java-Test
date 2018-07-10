@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @WebServlet(urlPatterns = "/stat/*")
-public class Stat extends HttpServlet{
+public class StatServlet extends HttpServlet{
 
     private UrlDao urlDao;
     private StatDao statDao;
