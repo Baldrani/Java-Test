@@ -28,7 +28,7 @@
         </c:forEach>
         </tbody>
     </table>
-
+    <a href="/create-csv" class="btn btn-primary">Exporter</a>
 </div>
 <%@include file="footer.jsp"%>
 </body>

@@ -32,14 +32,14 @@ public class IndexServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().setAttribute("link", "");
         this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         request.getSession().removeAttribute("noConnexion");
         request.getSession().removeAttribute("message");
+        request.getSession().removeAttribute("link");
+        System.out.println(request.getSession().getAttribute("link"));
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         if(request.getParameter("url").trim().compareTo("") != 0) {
             if ((request.getParameter("validate") == null)
                     || (request.getParameter("validate").compareTo("debut_fin") == 0 && request.getParameter("date_base").compareTo("") != 0  && request.getParameter("date_fin").compareTo("") != 0)
@@ -89,7 +89,6 @@ public class IndexServlet extends HttpServlet {
                     }
                     urlDao.add(url);
                     request.getSession().setAttribute("link", url.getShortcut());
-
                 } catch (Exception e) {
                     request.setAttribute("erreur", e.getMessage());
                 }

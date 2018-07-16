@@ -17,7 +17,6 @@ public class PrivatePage extends HttpServlet{
         {
             request.setAttribute("noConnexion", "Vous devez être connecté");
             response.sendRedirect("/");
-            //this.getServletContext().getRequestDispatcher("/").forward(request, response);
             return;
         }
         this.getServletContext().getRequestDispatcher("/private.jsp").forward(request, response);
