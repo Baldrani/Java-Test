@@ -79,21 +79,16 @@
 
                     </c:if>
                     <input type="submit" class="btn btn-primary" value="Raccourcir">
-                </div>
 
-                <c:if test="${!empty link}">
-                    <div class="container mt-5">
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="link">Votre lien : </label>
-                                    <input type="url" id="link" name="url" value="${ link }" class="form-control" readonly>
-                                    <button type="button" onclick="copyToClipboard()" class="btn btn-primary mt-2">Copier</button>
-                                </div>
-                            </div>
+                    <c:if test="${!empty link}">
+                        <hr>
+                        <div class="form-group">
+                            <label for="link">Votre lien : </label>
+                            <input type="url" id="link" name="url" value="${ link }" class="form-control" readonly>
+                            <button type="button" onclick="copyToClipboard()" class="btn btn-primary mt-2">Copier</button>
                         </div>
-                    </div>
-                </c:if>
+                    </c:if>
+                </div>
             </div>
         </form>
 
