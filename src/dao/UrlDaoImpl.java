@@ -47,8 +47,6 @@ public class UrlDaoImpl implements UrlDao {
             conn = daoFactory.getConnection();
             preparedStatement = conn.prepareStatement("SELECT * FROM url WHERE (shortcut = ?)");
             preparedStatement.setString(1, shortcut);
-            System.out.println(shortcut);
-            System.out.println(preparedStatement);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst() ) {
                 System.out.println("No data");

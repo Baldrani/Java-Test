@@ -29,9 +29,8 @@ public class Informations extends HttpServlet {
         this.userSession = (User) session.getAttribute( "user" );;
         if(session.getAttribute("user") == null)
         {
-            request.setAttribute("noConnexion", "Vous devez être connecté.");
+            request.setAttribute("message", "Vous devez être connecté.");
             response.sendRedirect("/");
-            //this.getServletContext().getRequestDispatcher("/").forward(request, response);
             return;
         }
         this.getServletContext().getRequestDispatcher("/modify-user.jsp").forward(request, response);
@@ -39,7 +38,9 @@ public class Informations extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getParameter("password-confirm").trim().compareTo("") != 0 && request.getParameter("password").trim().compareTo("") != 0 && request.getParameter("email").trim().compareTo("") != 0 && request.getParameter("login").trim().compareTo("") != 0) {
+            System.out.println("ici");
             if (request.getParameter("password").equals(request.getParameter("password-confirm"))) {
+                System.out.println("there");
                 try {
                     Date date = new Date();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

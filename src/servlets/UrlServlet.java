@@ -110,7 +110,6 @@ public class UrlServlet extends HttpServlet {
             }
 
         } catch (Exception e) {
-            System.out.println(e);
             System.out.println("Url not found");
             request.getSession().setAttribute("messageVerif", "Cette url n'existe pas");
         }

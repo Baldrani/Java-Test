@@ -6,17 +6,6 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
-<c:if test="${!empty noConnexion}">
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col">
-                <div class="alert alert-danger" role="alert">
-                        ${ noConnexion }
-                </div>
-            </div>
-        </div>
-    </div>
-</c:if>
 <c:if test="${!empty message}">
     <div class="container mt-5">
         <div class="row">
